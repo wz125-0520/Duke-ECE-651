@@ -1,0 +1,149 @@
+1.
+Task: Create a class named FieldsBuilder and complete its constructor which parse all the names and types passed in, and store them into a map.
+Estimated Time: 1h
+Target Deadline: 1.30
+Actual Time: 3h
+Actual Delivery: 1.31
+Commit ID: 8d822870
+Comments: When I tried to do that, I realiszed that inside of each fields there is still another level which FieldBuilder is based on and I needed to deal with. So, I add another task 1.1 to finish that.
+
+Add: 1.1 
+Task: In each field, the type also need to be handled in terms of Multi-dimension type. Add a new class named TypeBuilder to deal with that.
+Estimated Time: 1h
+Target Deadline: 1.30
+Actual Time: 2h
+Actual Delivery: 1.30
+Commit ID: 8d822870
+Comments: I found that when executing this part by using getJSONObject or getString function, it may throw exceptions if it did not find the correct format. Because I am not familiar with java and JSON, I spend lots of time to find the available method.
+
+
+Created in the Same Class 2.3.4
+Task: Create a new class named method to handle all kinds of needed functions. For non-array type, one-dimension and multi-dimension.
+
+2.
+Task: generate the function which deal with non-array types (add the get and set methods) and store its related code.
+Estimated Time: 1h
+Target Deadline: 1.31
+Actual Time: 30min
+Actual Delivery: 1.31
+Commit ID: 8d822870
+Comments: It is not very hard, just some hardcoding.
+
+
+3.
+Task: finish the function which can generate the inner code for one dimensional array and store in a string(four methods) 
+Estimated Time: 2h
+Target Deadline: 1.31
+Actual Time: 1h
+Actual Delivery: 1.31
+Commit ID: 8d822870
+Comments: These four method are also not very complex. I searched for what kinds of method the arraylist type can have.
+
+4.
+Task: finish the function which can generate the inner code for multi-dimensional array and store the string. 
+Estimated Time: 2h
+Target Deadline:1.31
+Actual Time: 1h
+Actual Delivery:1.31
+Commit ID: 8d822870
+Comments: At first, I did not know the rules of java and also the requirments are also not very clear, so I cannot figure out how to represent multi-dimension arrays.
+
+5.
+Task: Complete the Constructor function for each class which has array fields.
+Estimated Time: 1h
+Target Deadline: 1.31
+Actual Time: 1h
+Actual Delivery:2.1
+Commit ID: 8d822870
+Comments: Only finishing this function is not very hard, but I will need some general plan about how to formula all these data generated.
+
+
+6.
+Task: Create the ClassBuilder which also means finish its constructor which create two fields(classnames and the inner code( call the FieldBuilder’s function which return the inner code))(use a hash map to store all the code)
+Estimated Time: 1h
+Target Deadline: 2.1
+Actual Time: 2h
+Actual Delivery: 2.1
+Commit ID: 8d822870
+Comments: After I finish the rest of tasks, I found that only this hashmap stored the generated code is not enough. So, I add more data structures to store the data.
+
+7.
+Task: Complete the function of getClassNames
+Estimated Time: 0.5h
+Target Deadline: 2.1
+Actual Time: 0.5h
+Actual Delivery:2.2
+Commit ID: 8d822870
+Comments: Create a arraylist to store all the classes name and return it
+
+8.
+Task: Finish the function of getSourceCode. The specified operation is combining the classname field string with the inner code string to generate the entire code text.
+Estimated Time: 2h
+Target Deadline: 2.3
+Actual Time:1.5h
+Actual Delivery:2.4
+Commit ID: 8d822870
+Comments: Iterated through the hashmap and generate the source code. This task is not very easy.
+ 
+9.
+Task: Create the JSONObject toJSON() function(serialization?) which for each class which created the specified inner code
+Estimated Time: 4h
+Target Deadline: 2.3
+Actual Time: 10h
+Actual Delivery: 2.4
+Commit ID: 8d822870
+Comments: finish serialization(toJSON()) I underestimated how hard this part is. Since when I first plan the task, I did not understand how it works and the description for it is not very complex (just create a method for each class). However, it took me almost one day to truly understande it, like how that function will be tested, what kinds of format it will generate. 
+
+10.
+Task: Add the Subdirectory function to deal with the optional package
+Estimated Time: 30min
+Target Deadline: 2.4
+Actual Time: 1h
+Actual Delivery: 2.5
+Commit ID: 2089b18d
+Comments:(test waste much time because of the symbol is' not")
+
+Optimize 8.1.
+Task: Optimize Create a new data structure in ClassBuilder level to store the entire code which can be returned directly by getSourcecode function. The new function CreateCodeForAll to store data in that data structure(HashMap allcode). And it will also be easy for createAllClasses to use. 
+Estimated Time: 40min
+Target Deadline: 2.4
+Actual Time: 30min
+Actual Delivery: 2.4
+Commit ID: 94b7ce8d
+Comments: When trying to do the deserialization part, it is convenient to add a new HashMap to store the entire class code(including the first line in each class)
+
+11.
+Task: Create a class called Deserializer(deserialization)
+Estimated Time: 6h
+Target Deadline: 2.4
+Actual Time: 8h
+Actual Delivery: 2.5
+Commit ID:1ff04e19
+Comments: Firstly, I underestimated its complexity. When I tried to run the testcases, I found that the char, byte and short cannot be casted to int. So, I added three if conditions to handle them.
+
+11.1
+Task: Add the part of handling arraylist type and optimize the deserialization part 
+Estimated Time: 2h
+Target Deadline: 2.5
+Actual Time: 2.5h
+Actual Delivery:2.6
+Commit ID:26d7ec8b
+Comments:To test whether the code part works well, I need to use the test infrastructure given by drew and only when I finish all the parts, I can test them by using these testcases.
+
+12
+Task: Finish CreateAllClasses
+Estimated Time: 1h
+Target Deadline: 2.5
+Actual Time: 2h
+Actual Delivery:2.6
+Commit ID:821d08d4
+Comments:Because I am not familiar with the function needed to write output into a file, it took me longer time than I expected.
+
+13.
+Task: Test
+Estimated Time: 4h
+Target Deadline: 2.5
+Actual Time: 10h
+Actual Delivery: 2.6
+Commit ID:26d7ec8b
+Comments:There are too many cases that I did not deal with very well firstly. So, it took me a long time to debug. And printing the code as a string is really hard to make all the details correct.
